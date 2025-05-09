@@ -1,20 +1,10 @@
-#include <iostream>
-#include <SFML/Network.hpp>
-#include <SFML/Window.hpp>
+#include "NetServer/server.h"
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode({1200 , 800 }), "My window");
-
-    while (window.isOpen())
-    {
-        while (const std::optional event = window.pollEvent())
-        {
-            if (event->is<sf::Event::Closed>())
-                window.close();
-        }
-        window.clear();
-        window.display();
-    }
+    Server server(53000);
+    server.run();
+    return 0;
 }

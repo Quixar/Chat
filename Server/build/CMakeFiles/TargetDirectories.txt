@@ -1,0 +1,3 @@
+/Users/quixar/Development/Chat/Server/build/CMakeFiles/server.dir
+/Users/quixar/Development/Chat/Server/build/CMakeFiles/edit_cache.dir
+/Users/quixar/Development/Chat/Server/build/CMakeFiles/rebuild_cache.dir
