@@ -1031,6 +1031,7 @@ CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.o: \
   /opt/homebrew/include/SFML/Network/TcpListener.hpp \
   /opt/homebrew/include/SFML/Network/UdpSocket.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
+  /Users/quixar/Development/Chat/Client/StateMachine/Wrapper.h \
   /Users/quixar/Development/Chat/Client/StateMachine/StateMachine.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stack \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/deque \

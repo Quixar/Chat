@@ -2,6 +2,7 @@
 
 #include "../NetClient/NetClient.h"
 #include "State.h"
+#include "Wrapper.h"
 #include "StateMachine.h"
 #include "RegistrationState.h"
 #include "ChatState.h"
@@ -41,8 +42,8 @@ private:
     bool is_sign_in_submitted;
     bool is_register_selected;
 
-    std::string username;
-    std::string password;
+    Wrapper<std::string> username;
+    Wrapper<std::string> password;
 
     IStateFactory& registrationFactory;
     IStateFactory& chatFactory;

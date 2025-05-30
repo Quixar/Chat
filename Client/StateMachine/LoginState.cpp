@@ -89,9 +89,9 @@ void LoginState::handleEvent(const sf::Event& event)
 
         if (is_sign_in_selected && !is_sign_in_submitted)
         {
-            if (!username.empty() && !password.empty())
+            if (!username.get().empty() && !password.get().empty())
             {
-                if (netClient.sendLoginData(username, password))
+                if (netClient.sendLoginData(username.get(), password.get()))
                 {
                     std::string response = netClient.receiveRawResponse();
 
@@ -131,33 +131,39 @@ void LoginState::handleEvent(const sf::Event& event)
 
         if (is_username_selected)
         {
-            if (textEntered->unicode == 8)
+            if (textEntered->unicode == 8)  // backspace
             {
-                if (!username.empty()) 
+                auto& str = username.get();
+                if (!str.empty()) 
                 {
-                    username.pop_back();
+                    str.pop_back();
                 }
             }
             else if (textEntered->unicode < 128 && std::isprint(unicode_char))
             {
-                username += unicode_char;
+                auto str = username.get();
+                str += unicode_char;
+                username.set(str);
             }
-            username_text.setString(username);
+            username_text.setString(username.get());
         }
         else if (is_password_selected)
         {
             if (textEntered->unicode == 8)
             {
-                if (!password.empty())
+                auto& str = password.get();
+                if (!str.empty())
                 {
-                    password.pop_back();
+                    str.pop_back();
                 }
             }
             else if (textEntered->unicode < 128 && std::isprint(unicode_char))
             {
-                password += unicode_char;
+                auto str = password.get();
+                str += unicode_char;
+                password.set(str);
             }
-            password_text.setString(password);
+            password_text.setString(password.get());
         }
     }
 }

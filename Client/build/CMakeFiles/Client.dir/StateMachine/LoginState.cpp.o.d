@@ -1029,6 +1029,7 @@ CMakeFiles/Client.dir/StateMachine/LoginState.cpp.o: \
   /opt/homebrew/include/SFML/Window/Context.hpp \
   /opt/homebrew/include/SFML/Window/Cursor.hpp \
   /opt/homebrew/include/SFML/Window/Touch.hpp \
+  /Users/quixar/Development/Chat/Client/StateMachine/Wrapper.h \
   /Users/quixar/Development/Chat/Client/StateMachine/StateMachine.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stack \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/deque \

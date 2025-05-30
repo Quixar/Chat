@@ -25,6 +25,7 @@ set(HEADERS
     StateMachine/RegistrationStateFactory.h
     StateMachine/LoginStateFactory.h
     StateMachine/ChatStateFactory.h
+    StateMachine/Wrapper.h
 )
 
 # Создаем исполняемый файл

@@ -1036,5 +1036,6 @@ CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/deque \
   /Users/quixar/Development/Chat/Client/StateMachine/LoginState.h \
   /Users/quixar/Development/Chat/Client/StateMachine/../NetClient/NetClient.h \
+  /Users/quixar/Development/Chat/Client/StateMachine/Wrapper.h \
   /Users/quixar/Development/Chat/Client/StateMachine/ChatState.h \
   /Users/quixar/Development/Chat/Client/StateMachine/LoginStateFactory.h
