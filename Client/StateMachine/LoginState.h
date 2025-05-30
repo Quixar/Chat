@@ -4,6 +4,7 @@
 #include "State.h"
 #include "StateMachine.h"
 #include "RegistrationState.h"
+#include "ChatState.h"
 #include <SFML/Graphics.hpp>
 #include <string>
 

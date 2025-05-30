@@ -98,7 +98,7 @@ void LoginState::handleEvent(const sf::Event& event)
                     if (response == "LOGIN_SUCCESS")
                     {
                         is_sign_in_submitted = true;
-                        error_lable.setString("Login successful!");
+                        stateMachine.pushState(std::make_unique<ChatState>(window, stateMachine, netClient));
                     }
                     else if (response == "ERROR:INVALID_PASSWORD")
                     {

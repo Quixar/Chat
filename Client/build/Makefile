@@ -153,6 +153,30 @@ NetClient/NetClient.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/NetClient/NetClient.cpp.s
 .PHONY : NetClient/NetClient.cpp.s
 
+StateMachine/ChatState.o: StateMachine/ChatState.cpp.o
+.PHONY : StateMachine/ChatState.o
+
+# target to build an object file
+StateMachine/ChatState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/ChatState.cpp.o
+.PHONY : StateMachine/ChatState.cpp.o
+
+StateMachine/ChatState.i: StateMachine/ChatState.cpp.i
+.PHONY : StateMachine/ChatState.i
+
+# target to preprocess a source file
+StateMachine/ChatState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/ChatState.cpp.i
+.PHONY : StateMachine/ChatState.cpp.i
+
+StateMachine/ChatState.s: StateMachine/ChatState.cpp.s
+.PHONY : StateMachine/ChatState.s
+
+# target to generate assembly for a file
+StateMachine/ChatState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/ChatState.cpp.s
+.PHONY : StateMachine/ChatState.cpp.s
+
 StateMachine/LoginState.o: StateMachine/LoginState.cpp.o
 .PHONY : StateMachine/LoginState.o
 
@@ -261,6 +285,9 @@ help:
 	@echo "... NetClient/NetClient.o"
 	@echo "... NetClient/NetClient.i"
 	@echo "... NetClient/NetClient.s"
+	@echo "... StateMachine/ChatState.o"
+	@echo "... StateMachine/ChatState.i"
+	@echo "... StateMachine/ChatState.s"
 	@echo "... StateMachine/LoginState.o"
 	@echo "... StateMachine/LoginState.i"
 	@echo "... StateMachine/LoginState.s"

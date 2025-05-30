@@ -24,7 +24,9 @@ std::string User::getLastLogin() const { return last_login; }
 void User::setUsername(const std::string& username) { this->username = username; }
 void User::setEmail(const std::string& email) { this->email = email; }
 void User::setPasswordHash(const std::string& password_hash) { this->password_hash = password_hash; }
-void User::setRoleId(int role_id) { this->role_id= role_id; }
+void User::setRoleId(int role_id) { this->role_id = role_id; }
+void User::setIsActive(bool is_active) { this->is_active = is_active; }
+void User::setLastLogin(const std::string& lastLogin) { this->last_login = lastLogin; }
 
 std::string User::getCurrentDateTime() {
     auto now = std::chrono::system_clock::now();

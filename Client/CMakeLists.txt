@@ -10,6 +10,7 @@ set(SOURCES
     StateMachine/RegistrationState.cpp
     StateMachine/LoginState.cpp
     StateMachine/StateMachine.cpp
+    StateMachine/ChatState.cpp
     NetClient/NetClient.cpp
 )
 
@@ -17,6 +18,7 @@ set(HEADERS
     StateMachine/RegistrationState.h
     StateMachine/LoginState.h
     StateMachine/StateMachine.h
+    StateMachine/ChatState.h
 )
 
 # Создаем исполняемый файл

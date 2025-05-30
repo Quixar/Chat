@@ -87,7 +87,7 @@ RegistrationState::RegistrationState(sf::RenderWindow& win, StateMachine& sm, Ne
 
 void RegistrationState::handleEvent(const sf::Event& event) 
 {
-    // Обработка клика мыши — выбор активного поля
+    
     if (const auto* mouseButtonPressed = event.getIf<sf::Event::MouseButtonPressed>()) 
     {
         sf::Vector2f mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
@@ -114,7 +114,7 @@ void RegistrationState::handleEvent(const sf::Event& event)
                     if (response == "REG_SUCCESS")
                     {
                         is_registration_submitted = true;
-                        error_lable.setString("Registration successful!");
+                        stateMachine.pushState(std::make_unique<ChatState>(window, stateMachine, netClient));
                     }
                     else if (response == "ERROR:USERNAME_EXISTS")
                     {
@@ -146,14 +146,14 @@ void RegistrationState::handleEvent(const sf::Event& event)
         }
     }
 
-    // Обработка ввода текста — работает отдельно от кликов
+    
     if (const auto* textEntered = event.getIf<sf::Event::TextEntered>()) 
     {
         char unicode_char = static_cast<char>(textEntered->unicode);
 
         if (is_username_selected) 
         {
-            if (textEntered->unicode == 8) // Backspace
+            if (textEntered->unicode == 8) 
             {
                 if (!username.empty()) username.pop_back();
             }
@@ -192,7 +192,7 @@ void RegistrationState::handleEvent(const sf::Event& event)
 
 void RegistrationState::update() 
 {
-    // Обновление логики
+    
 }
 
 void RegistrationState::render(sf::RenderWindow& window) 

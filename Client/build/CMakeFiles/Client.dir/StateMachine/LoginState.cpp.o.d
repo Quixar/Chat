@@ -1033,4 +1033,5 @@ CMakeFiles/Client.dir/StateMachine/LoginState.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stack \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/deque \
   /Users/quixar/Development/Chat/Client/StateMachine/RegistrationState.h \
-  /Users/quixar/Development/Chat/Client/StateMachine/../NetClient//NetClient.h
+  /Users/quixar/Development/Chat/Client/StateMachine/../NetClient//NetClient.h \
+  /Users/quixar/Development/Chat/Client/StateMachine/ChatState.h

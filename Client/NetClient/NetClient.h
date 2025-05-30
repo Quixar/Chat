@@ -2,6 +2,7 @@
 
 #include <SFML/Network.hpp>
 #include <string>
+#include <sstream>
 #include <iostream>
 
 class NetClient
@@ -18,5 +19,10 @@ public:
     void disconnect();
     bool isRegSuccessful();
     bool isLogSuccessful();
+    bool sendMessage(const std::string& receiver, const std::string& message);
+    bool sendRawMessage(const std::string& message);
     std::string receiveRawResponse();
+    std::string getActiveUsers();
+    std::vector<std::string> fetchMessagesFrom(const std::string& sender); 
+    bool hasNewMessagesFrom(const std::string& sender);
 };

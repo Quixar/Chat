@@ -1,5 +1,6 @@
-CMakeFiles/Client.dir/main.cpp.o: \
-  /Users/quixar/Development/Chat/Client/main.cpp \
+CMakeFiles/Client.dir/StateMachine/ChatState.cpp.o: \
+  /Users/quixar/Development/Chat/Client/StateMachine/ChatState.cpp \
+  /Users/quixar/Development/Chat/Client/StateMachine/ChatState.h \
   /opt/homebrew/include/SFML/Graphics.hpp \
   /opt/homebrew/include/SFML/Graphics/BlendMode.hpp \
   /opt/homebrew/include/SFML/Graphics/Export.hpp \
@@ -991,8 +992,8 @@ CMakeFiles/Client.dir/main.cpp.o: \
   /opt/homebrew/include/SFML/System/InputStream.hpp \
   /opt/homebrew/include/SFML/System/MemoryInputStream.hpp \
   /opt/homebrew/include/SFML/System/Sleep.hpp \
-  /Users/quixar/Development/Chat/Client/StateMachine/StateMachine.h \
   /Users/quixar/Development/Chat/Client/StateMachine/State.h \
+  /Users/quixar/Development/Chat/Client/StateMachine/StateMachine.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stack \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/deque \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/functional \
@@ -1015,7 +1016,6 @@ CMakeFiles/Client.dir/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/pointer_to_binary_function.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/pointer_to_unary_function.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/unary_negate.h \
-  /Users/quixar/Development/Chat/Client/StateMachine/LoginState.h \
   /Users/quixar/Development/Chat/Client/StateMachine/../NetClient/NetClient.h \
   /opt/homebrew/include/SFML/Network.hpp \
   /opt/homebrew/include/SFML/Network/Ftp.hpp \
@@ -1031,8 +1031,4 @@ CMakeFiles/Client.dir/main.cpp.o: \
   /opt/homebrew/include/SFML/Network/SocketSelector.hpp \
   /opt/homebrew/include/SFML/Network/TcpListener.hpp \
   /opt/homebrew/include/SFML/Network/UdpSocket.hpp \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
-  /Users/quixar/Development/Chat/Client/StateMachine/RegistrationState.h \
-  /Users/quixar/Development/Chat/Client/StateMachine/../NetClient//NetClient.h \
-  /Users/quixar/Development/Chat/Client/StateMachine/ChatState.h \
-  /Users/quixar/Development/Chat/Client/NetClient/NetClient.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream

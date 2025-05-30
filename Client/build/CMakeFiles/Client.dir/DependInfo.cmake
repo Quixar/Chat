@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/quixar/Development/Chat/Client/NetClient/NetClient.cpp" "CMakeFiles/Client.dir/NetClient/NetClient.cpp.o" "gcc" "CMakeFiles/Client.dir/NetClient/NetClient.cpp.o.d"
+  "/Users/quixar/Development/Chat/Client/StateMachine/ChatState.cpp" "CMakeFiles/Client.dir/StateMachine/ChatState.cpp.o" "gcc" "CMakeFiles/Client.dir/StateMachine/ChatState.cpp.o.d"
   "/Users/quixar/Development/Chat/Client/StateMachine/LoginState.cpp" "CMakeFiles/Client.dir/StateMachine/LoginState.cpp.o" "gcc" "CMakeFiles/Client.dir/StateMachine/LoginState.cpp.o.d"
   "/Users/quixar/Development/Chat/Client/StateMachine/RegistrationState.cpp" "CMakeFiles/Client.dir/StateMachine/RegistrationState.cpp.o" "gcc" "CMakeFiles/Client.dir/StateMachine/RegistrationState.cpp.o.d"
   "/Users/quixar/Development/Chat/Client/StateMachine/StateMachine.cpp" "CMakeFiles/Client.dir/StateMachine/StateMachine.cpp.o" "gcc" "CMakeFiles/Client.dir/StateMachine/StateMachine.cpp.o.d"

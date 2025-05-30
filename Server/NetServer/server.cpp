@@ -1,6 +1,6 @@
 #include "server.h"
 
-Server::Server(int port) : dataContext("mysqlx://root:INnoVation@localhost:33060", "Chat")
+Server::Server(int port) : dataContext("mysqlx:
 {
     this->port = port;
     auto ip = sf::IpAddress::resolve("127.0.0.1");
@@ -10,7 +10,7 @@ Server::Server(int port) : dataContext("mysqlx://root:INnoVation@localhost:33060
         throw std::runtime_error("Failed to bind port");
     }
     selector.add(listener);
-    std::cout << "Server started on " << ip->toString()<< ":" << port << "\n";
+    dataContext.logValue("Server started on " +  ip->toString() + ":" + std::to_string(port));
 }
 
 void Server::run()
@@ -43,10 +43,11 @@ void Server::acceptNewClient()
     if (listener.accept(*client) == sf::Socket::Status::Done)
     {
         selector.add(*client);
-        std::cout << "New client connected: " << client->getRemoteAddress()->toString() << "\n";
+        dataContext.logValue("New client connected: " + client->getRemoteAddress()->toString() + "\n");
         clients.push_back(std::move(client));
     }
 }
+
 void Server::handleClient(std::size_t index)
 {
     char buffer[1024];
@@ -58,14 +59,11 @@ void Server::handleClient(std::size_t index)
     if (status == sf::Socket::Status::Done)
     {
         std::string message(buffer, received);
-        std::cout << "Received from client " << index << ": " << message << "\n";
+        dataContext.logValue("Received from client " + std::to_string(index) + ":" + message + "\n");
 
-        // Проверка на начало строки, которая указывает на запрос регистрации
         if (message.rfind("REG:", 0) == 0)
         {
             std::string registrationData = message.substr(4);
-            std::cout << "Registration data received: " << registrationData << "\n";
-
             std::istringstream stream(registrationData);
             std::string username, password, email;
 
@@ -73,45 +71,29 @@ void Server::handleClient(std::size_t index)
             std::getline(stream, password);
             std::getline(stream, email);
 
-            // Проверяем, существует ли уже такой пользователь
             if (dataContext.usernameExists(username))
             {
                 std::string errorMessage = "ERROR:USERNAME_EXISTS";
-                if (socket.send(errorMessage.c_str(), errorMessage.size()) != sf::Socket::Status::Done)
-                {
-                    std::cerr << "Failed to send username exists error to client\n";
-                }
-                std::cout << "Username already exists: " << username << "\n";
+                socket.send(errorMessage.c_str(), errorMessage.size());
+            }
+            else if (!username.empty() && !password.empty() && !email.empty())
+            {
+                dataContext.addUser(User(username, email, password, User::getCurrentDateTime(), 1));
+                dataContext.updateUserActive(username, true);
+                socketToUsername[&socket] = username;
+
+                std::string successMessage = "REG_SUCCESS";
+                socket.send(successMessage.c_str(), successMessage.size());
             }
             else
             {
-                if (!username.empty() && !password.empty() && !email.empty())
-                {
-                    dataContext.addUser(User(username, email, password, User::getCurrentDateTime(), 1));
-                    std::cout << "New user registered: " << username << "\n";
-
-                    std::string successMessage = "REG_SUCCESS";
-                    if (socket.send(successMessage.c_str(), successMessage.size()) != sf::Socket::Status::Done)
-                    {
-                        std::cerr << "Failed to send success message to client\n";
-                    }
-                }
-                else
-                {
-                    std::string errorMessage = "ERROR:INVALID_DATA";
-                    if (socket.send(errorMessage.c_str(), errorMessage.size()) != sf::Socket::Status::Done)
-                    {
-                        std::cerr << "Failed to send invalid data error to client\n";
-                    }
-                    std::cout << "Invalid registration data format\n";
-                }
+                std::string errorMessage = "ERROR:INVALID_DATA";
+                socket.send(errorMessage.c_str(), errorMessage.size());
             }
         }
         else if (message.rfind("LOGIN:", 0) == 0)
         {
             std::string loginData = message.substr(6);
-            std::cout << "Login attempt: " << loginData << "\n";
-
             std::istringstream stream(loginData);
             std::string username, password;
 
@@ -120,27 +102,131 @@ void Server::handleClient(std::size_t index)
 
             if (dataContext.checkPassword(username, password))
             {
+                dataContext.updateUserActive(username, true);
+                socketToUsername[&socket] = username;
+
                 std::string successMessage = "LOGIN_SUCCESS";
-                if (socket.send(successMessage.c_str(), successMessage.size()) != sf::Socket::Status::Done)
-                {
-                    std::cerr << "Failed to send success message to client\n";
-                }
-                std::cout << "User logged in successfuly\n";
+                socket.send(successMessage.c_str(), successMessage.size());
             }
             else
             {
                 std::string errorMessage = "ERROR:INVALID_PASSWORD";
-                if (socket.send(errorMessage.c_str(), errorMessage.size()) != sf::Socket::Status::Done)
+                socket.send(errorMessage.c_str(), errorMessage.size());
+            }
+        }
+        else if (message == "GET_ACTIVE_USERS")
+        {
+            std::string response;
+            for (auto& user : dataContext.getUsers())
+            {
+                if (user.getIsActive())
                 {
-                    std::cerr << "Failed to send user not found error to client\n";
+                    response += user.getUsername() + '|';
                 }
-                std::cout << "User not found: " << username << "\n";
+            }
+            if (response.empty()) response = "NONE";
+
+            socket.send(response.c_str(), response.size());
+        }
+        else if (message.rfind("MSG:", 0) == 0)
+        {
+            std::string msgData = message.substr(4);
+            std::istringstream stream(msgData);
+            std::string receiver, msgText;
+
+            std::getline(stream, receiver);
+            std::getline(stream, msgText);
+
+            auto senderIt = socketToUsername.find(&socket);
+            if (senderIt == socketToUsername.end())
+            {
+                std::string error = "ERROR:NOT_LOGGED_IN";
+                socket.send(error.c_str(), error.size());
+                return;
+            }
+
+            std::string sender = senderIt->second;
+            dataContext.storeMessage(sender, receiver, msgText);
+
+            std::string confirmation = "MSG_STORED";
+            socket.send(confirmation.c_str(), confirmation.size());
+
+            for (auto& clientSocket : clients)
+            {
+                auto it = socketToUsername.find(clientSocket.get());
+                if (it != socketToUsername.end() && it->second == receiver)
+                {
+                    std::string outgoingMessage = "MSG_FROM:" + sender + "\n" + msgText;
+                    clientSocket->send(outgoingMessage.c_str(), outgoingMessage.size());
+                    break;
+                }
+            }
+        }
+        else if (message.rfind("GET_MSGS_FROM:", 0) == 0) 
+        {
+            std::string sender = message.substr(14);
+            auto receiverIt = socketToUsername.find(&socket);
+            if (receiverIt != socketToUsername.end()) 
+            {
+                std::string receiver = receiverIt->second;
+
+                std::vector<std::string> messages = dataContext.fetchMessages(sender, receiver);
+
+                if (!messages.empty()) 
+                {
+                    std::ostringstream oss;
+                    for (const auto& msg : messages) 
+                    {
+                        oss << msg << "|";
+                    }
+
+                    std::string reply = oss.str();
+                    if (!reply.empty()) 
+                    {
+                        if (socket.send(reply.c_str(), reply.size()) != sf::Socket::Status::Done) 
+                        {
+                            dataContext.logValue("Failed to send messages from " + sender + "to " + receiver);
+                        }
+                        dataContext.markMessagesAsDelivered(sender, receiver);
+                    }
+                    else
+                    {
+                        std::string emptyMsg = "NO_MSGS";
+                        socket.send(emptyMsg.c_str(), emptyMsg.size());
+                    }
+                } 
+                else 
+                {
+                    dataContext.logValue("No messages to send from " + sender + "to " + receiver + "\n");
+                }
+            }
+        }
+        else if (message.rfind("CHECK_MSGS_FROM:", 0) == 0)
+        {
+            std::string sender = message.substr(16); 
+            auto receiverIt = socketToUsername.find(&socket);
+            if (receiverIt != socketToUsername.end())
+            {
+                std::string receiver = receiverIt->second;
+                auto pendingMessages = dataContext.fetchMessages(sender, receiver);
+
+                std::string response = pendingMessages.empty() ? "NO_MSGS" : "HAS_MSGS";
+                socket.send(response.c_str(), response.size());
             }
         }
     }
     else if (status == sf::Socket::Status::Disconnected)
     {
-        std::cout << "Client disconnected: " << socket.getRemoteAddress()->toString() << "\n";
+        dataContext.logValue("Client disconnected: " + socket.getRemoteAddress()->toString() + "\n");
+
+        auto it = socketToUsername.find(&socket);
+        if (it != socketToUsername.end())
+        {
+            dataContext.updateUserActive(it->second, false);
+            dataContext.updateLastLogin(it->second);
+            socketToUsername.erase(it);
+        }
+
         selector.remove(socket);
         clients.erase(clients.begin() + index);
     }

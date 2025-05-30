@@ -21,7 +21,6 @@ private:
     static int next_id;
 
 public:
-    // Конструктор с параметрами
     User(const std::string& username, const std::string& email,
          const std::string& passwordHash, const std::string& createdAt,
          int roleId, bool isActive = true, const std::string& lastLogin = "");
@@ -30,13 +29,11 @@ public:
          const std::string& passwordHash, const std::string& createdAt,
          int roleId, bool isActive = true, const std::string& lastLogin = "");
 
-    // Конструктор по умолчанию
     User() 
         : id(0), username(""), email(""), password_hash(""), 
           created_at(getCurrentDateTime()), role_id(0), 
           is_active(true), last_login("") {}
 
-    // Геттеры
     int getId() const;
     std::string getUsername() const;
     std::string getEmail() const;
@@ -46,12 +43,12 @@ public:
     bool getIsActive() const;
     std::string getLastLogin() const;
 
-    // Сеттеры
     void setUsername(const std::string& username);
     void setEmail(const std::string& email);
     void setPasswordHash(const std::string& password_hash);
     void setRoleId(int role_id);
+    void setIsActive(bool is_active);
+    void setLastLogin(const std::string& lastLogin); 
 
-    // Статический метод для получения текущего времени
     static std::string getCurrentDateTime();
 };

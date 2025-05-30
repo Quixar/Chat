@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Client.dir/NetClient/NetClient.cpp.o"
   "CMakeFiles/Client.dir/NetClient/NetClient.cpp.o.d"
+  "CMakeFiles/Client.dir/StateMachine/ChatState.cpp.o"
+  "CMakeFiles/Client.dir/StateMachine/ChatState.cpp.o.d"
   "CMakeFiles/Client.dir/StateMachine/LoginState.cpp.o"
   "CMakeFiles/Client.dir/StateMachine/LoginState.cpp.o.d"
   "CMakeFiles/Client.dir/StateMachine/RegistrationState.cpp.o"

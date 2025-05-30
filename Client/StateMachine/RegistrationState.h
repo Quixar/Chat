@@ -3,6 +3,7 @@
 #include "../NetClient//NetClient.h"
 #include "StateMachine.h"
 #include "LoginState.h"
+#include "ChatState.h"
 #include "State.h"
 #include <SFML/Window.hpp>
 

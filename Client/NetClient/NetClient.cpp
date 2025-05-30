@@ -63,3 +63,81 @@ bool NetClient::isLogSuccessful()
 {
     return receiveRawResponse() == "LOGIN_SUCCESS";
 }
+std::string NetClient::getActiveUsers()
+{
+    std::string data = "GET_ACTIVE_USERS";
+    if (socket.send(data.c_str(), data.size()) != sf::Socket::Status::Done) {
+        return "";
+    }
+
+    char buffer[1024];
+    std::size_t received = 0;
+    if (socket.receive(buffer, sizeof(buffer), received) != sf::Socket::Status::Done) {
+        return "";
+    }
+
+    std::string response(buffer, received);
+    return response;  
+}
+
+bool NetClient::sendMessage(const std::string& receiver, const std::string& message) {
+    std::string msg = "MSG:" + receiver + "\n" + message;
+    return sendRawMessage(msg);
+}
+
+bool NetClient::sendRawMessage(const std::string& message) {
+    socket.send(message.c_str(), message.size());
+    return true;
+}
+
+std::vector<std::string> NetClient::fetchMessagesFrom(const std::string& sender) 
+{
+    std::string request = "GET_MSGS_FROM:" + sender;
+    if (socket.send(request.c_str(), request.size()) != sf::Socket::Status::Done) {
+        std::cerr << "Failed to send GET_MSGS_FROM request\n";
+        return {};
+    }
+
+    char buffer[4096];
+    std::size_t received;
+
+    sf::Socket::Status status = socket.receive(buffer, sizeof(buffer), received);
+    if (status != sf::Socket::Status::Done) {
+        std::cerr << "Failed to receive messages\n";
+        return {};
+    }
+
+    std::string response(buffer, received);
+    if (response == "NO_MSGS" || response.empty()) {
+        return {}; 
+    }
+
+    std::vector<std::string> messages;
+    std::stringstream ss(response);
+    std::string line;
+
+    while (std::getline(ss, line, '|')) {
+        if (!line.empty())
+            messages.push_back(sender + ": " + line);
+    }
+
+    return messages;
+}
+bool NetClient::hasNewMessagesFrom(const std::string& sender) {
+    std::string request = "CHECK_MSGS_FROM:" + sender;
+    if (socket.send(request.c_str(), request.size()) != sf::Socket::Status::Done) {
+        std::cerr << "Failed to send CHECK_MSGS_FROM request\n";
+        return false;
+    }
+
+    char buffer[128];
+    std::size_t received;
+    sf::Socket::Status status = socket.receive(buffer, sizeof(buffer), received);
+    if (status != sf::Socket::Status::Done) {
+        std::cerr << "Failed to receive CHECK_MSGS_FROM response\n";
+        return false;
+    }
+
+    std::string response(buffer, received);
+    return response == "HAS_MSGS";
+}
