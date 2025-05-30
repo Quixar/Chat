@@ -177,6 +177,30 @@ StateMachine/ChatState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/ChatState.cpp.s
 .PHONY : StateMachine/ChatState.cpp.s
 
+StateMachine/ChatStateFactory.o: StateMachine/ChatStateFactory.cpp.o
+.PHONY : StateMachine/ChatStateFactory.o
+
+# target to build an object file
+StateMachine/ChatStateFactory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.o
+.PHONY : StateMachine/ChatStateFactory.cpp.o
+
+StateMachine/ChatStateFactory.i: StateMachine/ChatStateFactory.cpp.i
+.PHONY : StateMachine/ChatStateFactory.i
+
+# target to preprocess a source file
+StateMachine/ChatStateFactory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.i
+.PHONY : StateMachine/ChatStateFactory.cpp.i
+
+StateMachine/ChatStateFactory.s: StateMachine/ChatStateFactory.cpp.s
+.PHONY : StateMachine/ChatStateFactory.s
+
+# target to generate assembly for a file
+StateMachine/ChatStateFactory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.s
+.PHONY : StateMachine/ChatStateFactory.cpp.s
+
 StateMachine/LoginState.o: StateMachine/LoginState.cpp.o
 .PHONY : StateMachine/LoginState.o
 
@@ -201,6 +225,30 @@ StateMachine/LoginState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/LoginState.cpp.s
 .PHONY : StateMachine/LoginState.cpp.s
 
+StateMachine/LoginStateFactory.o: StateMachine/LoginStateFactory.cpp.o
+.PHONY : StateMachine/LoginStateFactory.o
+
+# target to build an object file
+StateMachine/LoginStateFactory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.o
+.PHONY : StateMachine/LoginStateFactory.cpp.o
+
+StateMachine/LoginStateFactory.i: StateMachine/LoginStateFactory.cpp.i
+.PHONY : StateMachine/LoginStateFactory.i
+
+# target to preprocess a source file
+StateMachine/LoginStateFactory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.i
+.PHONY : StateMachine/LoginStateFactory.cpp.i
+
+StateMachine/LoginStateFactory.s: StateMachine/LoginStateFactory.cpp.s
+.PHONY : StateMachine/LoginStateFactory.s
+
+# target to generate assembly for a file
+StateMachine/LoginStateFactory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.s
+.PHONY : StateMachine/LoginStateFactory.cpp.s
+
 StateMachine/RegistrationState.o: StateMachine/RegistrationState.cpp.o
 .PHONY : StateMachine/RegistrationState.o
 
@@ -224,6 +272,30 @@ StateMachine/RegistrationState.s: StateMachine/RegistrationState.cpp.s
 StateMachine/RegistrationState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/RegistrationState.cpp.s
 .PHONY : StateMachine/RegistrationState.cpp.s
+
+StateMachine/RegistrationStateFactory.o: StateMachine/RegistrationStateFactory.cpp.o
+.PHONY : StateMachine/RegistrationStateFactory.o
+
+# target to build an object file
+StateMachine/RegistrationStateFactory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.o
+.PHONY : StateMachine/RegistrationStateFactory.cpp.o
+
+StateMachine/RegistrationStateFactory.i: StateMachine/RegistrationStateFactory.cpp.i
+.PHONY : StateMachine/RegistrationStateFactory.i
+
+# target to preprocess a source file
+StateMachine/RegistrationStateFactory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.i
+.PHONY : StateMachine/RegistrationStateFactory.cpp.i
+
+StateMachine/RegistrationStateFactory.s: StateMachine/RegistrationStateFactory.cpp.s
+.PHONY : StateMachine/RegistrationStateFactory.s
+
+# target to generate assembly for a file
+StateMachine/RegistrationStateFactory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.s
+.PHONY : StateMachine/RegistrationStateFactory.cpp.s
 
 StateMachine/StateMachine.o: StateMachine/StateMachine.cpp.o
 .PHONY : StateMachine/StateMachine.o
@@ -288,12 +360,21 @@ help:
 	@echo "... StateMachine/ChatState.o"
 	@echo "... StateMachine/ChatState.i"
 	@echo "... StateMachine/ChatState.s"
+	@echo "... StateMachine/ChatStateFactory.o"
+	@echo "... StateMachine/ChatStateFactory.i"
+	@echo "... StateMachine/ChatStateFactory.s"
 	@echo "... StateMachine/LoginState.o"
 	@echo "... StateMachine/LoginState.i"
 	@echo "... StateMachine/LoginState.s"
+	@echo "... StateMachine/LoginStateFactory.o"
+	@echo "... StateMachine/LoginStateFactory.i"
+	@echo "... StateMachine/LoginStateFactory.s"
 	@echo "... StateMachine/RegistrationState.o"
 	@echo "... StateMachine/RegistrationState.i"
 	@echo "... StateMachine/RegistrationState.s"
+	@echo "... StateMachine/RegistrationStateFactory.o"
+	@echo "... StateMachine/RegistrationStateFactory.i"
+	@echo "... StateMachine/RegistrationStateFactory.s"
 	@echo "... StateMachine/StateMachine.o"
 	@echo "... StateMachine/StateMachine.i"
 	@echo "... StateMachine/StateMachine.s"

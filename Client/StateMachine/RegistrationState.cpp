@@ -1,8 +1,10 @@
 #include "RegistrationState.h"
 
-RegistrationState::RegistrationState(sf::RenderWindow& win, StateMachine& sm, NetClient& netClient)
+RegistrationState::RegistrationState(sf::RenderWindow& win, StateMachine& sm, NetClient& netClient, IStateFactory& loginFac, IStateFactory& chatFac)
     : window(win), 
       stateMachine(sm),
+      loginFactory(loginFac),
+      chatFactory(chatFac),
       font(),
       title(font, ""),
       username_box(), password_box(), email_box(), sign_up_box(),
@@ -100,7 +102,7 @@ void RegistrationState::handleEvent(const sf::Event& event)
 
         if (is_login_selected)
         {
-            stateMachine.pushState(std::make_unique<LoginState>(window, stateMachine, netClient));
+            stateMachine.pushState(loginFactory.create());
         }
 
         if (is_sign_up_selected && !is_registration_submitted)
@@ -114,7 +116,7 @@ void RegistrationState::handleEvent(const sf::Event& event)
                     if (response == "REG_SUCCESS")
                     {
                         is_registration_submitted = true;
-                        stateMachine.pushState(std::make_unique<ChatState>(window, stateMachine, netClient));
+                        stateMachine.pushState(chatFactory.create());
                     }
                     else if (response == "ERROR:USERNAME_EXISTS")
                     {

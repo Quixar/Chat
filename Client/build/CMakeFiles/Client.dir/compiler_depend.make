@@ -2950,8 +2950,11 @@ CMakeFiles/Client.dir/StateMachine/LoginState.cpp.o: /Users/quixar/Development/C
   /Users/quixar/Development/Chat/Client/NetClient/NetClient.h \
   /Users/quixar/Development/Chat/Client/NetClient/NetClient.h \
   /Users/quixar/Development/Chat/Client/StateMachine/ChatState.h \
+  /Users/quixar/Development/Chat/Client/StateMachine/IStateFactory.h \
   /Users/quixar/Development/Chat/Client/StateMachine/LoginState.h \
+  /Users/quixar/Development/Chat/Client/StateMachine/LoginStateFactory.h \
   /Users/quixar/Development/Chat/Client/StateMachine/RegistrationState.h \
+  /Users/quixar/Development/Chat/Client/StateMachine/RegistrationStateFactory.h \
   /Users/quixar/Development/Chat/Client/StateMachine/State.h \
   /Users/quixar/Development/Chat/Client/StateMachine/StateMachine.h \
   /opt/homebrew/include/SFML/Config.hpp \
@@ -3987,8 +3990,11 @@ CMakeFiles/Client.dir/StateMachine/RegistrationState.cpp.o: /Users/quixar/Develo
   /Users/quixar/Development/Chat/Client/NetClient/NetClient.h \
   /Users/quixar/Development/Chat/Client/NetClient/NetClient.h \
   /Users/quixar/Development/Chat/Client/StateMachine/ChatState.h \
+  /Users/quixar/Development/Chat/Client/StateMachine/IStateFactory.h \
   /Users/quixar/Development/Chat/Client/StateMachine/LoginState.h \
+  /Users/quixar/Development/Chat/Client/StateMachine/LoginStateFactory.h \
   /Users/quixar/Development/Chat/Client/StateMachine/RegistrationState.h \
+  /Users/quixar/Development/Chat/Client/StateMachine/RegistrationStateFactory.h \
   /Users/quixar/Development/Chat/Client/StateMachine/State.h \
   /Users/quixar/Development/Chat/Client/StateMachine/StateMachine.h \
   /opt/homebrew/include/SFML/Config.hpp \
@@ -6042,8 +6048,12 @@ CMakeFiles/Client.dir/main.cpp.o: /Users/quixar/Development/Chat/Client/main.cpp
   /Users/quixar/Development/Chat/Client/NetClient/NetClient.h \
   /Users/quixar/Development/Chat/Client/NetClient/NetClient.h \
   /Users/quixar/Development/Chat/Client/StateMachine/ChatState.h \
+  /Users/quixar/Development/Chat/Client/StateMachine/ChatStateFactory.h \
+  /Users/quixar/Development/Chat/Client/StateMachine/IStateFactory.h \
   /Users/quixar/Development/Chat/Client/StateMachine/LoginState.h \
+  /Users/quixar/Development/Chat/Client/StateMachine/LoginStateFactory.h \
   /Users/quixar/Development/Chat/Client/StateMachine/RegistrationState.h \
+  /Users/quixar/Development/Chat/Client/StateMachine/RegistrationStateFactory.h \
   /Users/quixar/Development/Chat/Client/StateMachine/State.h \
   /Users/quixar/Development/Chat/Client/StateMachine/StateMachine.h \
   /opt/homebrew/include/SFML/Config.hpp \
@@ -6138,9 +6148,17 @@ CMakeFiles/Client.dir/main.cpp.o: /Users/quixar/Development/Chat/Client/main.cpp
   /opt/homebrew/include/SFML/Window/WindowHandle.hpp
 
 
+/Users/quixar/Development/Chat/Client/StateMachine/ChatStateFactory.h:
+
 /Users/quixar/Development/Chat/Client/StateMachine/StateMachine.cpp:
 
 /Users/quixar/Development/Chat/Client/StateMachine/RegistrationState.cpp:
+
+/Users/quixar/Development/Chat/Client/StateMachine/RegistrationStateFactory.h:
+
+/Users/quixar/Development/Chat/Client/StateMachine/LoginStateFactory.h:
+
+/Users/quixar/Development/Chat/Client/StateMachine/IStateFactory.h:
 
 /Users/quixar/Development/Chat/Client/StateMachine/LoginState.cpp:
 

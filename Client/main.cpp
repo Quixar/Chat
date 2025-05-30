@@ -1,7 +1,9 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include "StateMachine/StateMachine.h"
-#include "StateMachine/LoginState.h"
+#include "StateMachine/RegistrationStateFactory.h"
+#include "StateMachine/ChatStateFactory.h"
+#include "StateMachine/LoginStateFactory.h"
 #include "NetClient/NetClient.h"
 
 int main()
@@ -13,7 +15,14 @@ int main()
 
     netClient.connect();
 
-    stateMachine.pushState(std::make_unique<LoginState>(window, stateMachine, netClient));
+    LoginStateFactory loginFactory(window, stateMachine, netClient);
+    RegistrationStateFactory registrationFactory(window, stateMachine, netClient);
+    ChatStateFactory chatFactory(window, stateMachine, netClient);
+
+    loginFactory.init(registrationFactory, chatFactory);
+    registrationFactory.init(loginFactory, chatFactory);  
+
+    stateMachine.pushState(loginFactory.create());
 
     while (window.isOpen())
     {

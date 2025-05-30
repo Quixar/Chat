@@ -1,13 +1,13 @@
 #include "LoginState.h"
 
-LoginState::LoginState(sf::RenderWindow& window, StateMachine& sm, NetClient& netClient)
+LoginState::LoginState(sf::RenderWindow& window, StateMachine& sm, NetClient& netClient, IStateFactory& regFactory, IStateFactory& chatFactory)
     : window(window),
       stateMachine(sm),
       font(),
       title(font, ""),
       username_text(font, ""), password_text(font, ""), sign_in_text(font, "Sign in"),
       username_lable(font, "Username"), password_lable(font, "Password"), error_lable(font, ""), registration_lable(font, "Register"),
-      netClient(netClient)
+      netClient(netClient), registrationFactory(regFactory), chatFactory(chatFactory)
 {
     if (!font.openFromFile("arial.ttf"))
     {
@@ -84,7 +84,7 @@ void LoginState::handleEvent(const sf::Event& event)
 
         if (is_register_selected)
         {
-            stateMachine.pushState(std::make_unique<RegistrationState>(window, stateMachine, netClient));
+            stateMachine.pushState(registrationFactory.create());
         }
 
         if (is_sign_in_selected && !is_sign_in_submitted)
@@ -98,7 +98,7 @@ void LoginState::handleEvent(const sf::Event& event)
                     if (response == "LOGIN_SUCCESS")
                     {
                         is_sign_in_submitted = true;
-                        stateMachine.pushState(std::make_unique<ChatState>(window, stateMachine, netClient));
+                        stateMachine.pushState(chatFactory.create());
                     }
                     else if (response == "ERROR:INVALID_PASSWORD")
                     {

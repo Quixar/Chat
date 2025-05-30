@@ -4,6 +4,7 @@
 #include "StateMachine.h"
 #include "LoginState.h"
 #include "ChatState.h"
+#include "RegistrationStateFactory.h"
 #include "State.h"
 #include <SFML/Window.hpp>
 
@@ -49,8 +50,11 @@ private:
     std::string username;
     std::string password;
     std::string email;
+
+    IStateFactory& loginFactory;
+    IStateFactory& chatFactory;
 public:
-    RegistrationState(sf::RenderWindow& window, StateMachine& sm, NetClient& netClient);
+    RegistrationState(sf::RenderWindow& window, StateMachine& sm, NetClient& netClient, IStateFactory& loginFactory, IStateFactory& chatFactory);
     void handleEvent(const sf::Event& event) override;
     void render(sf::RenderWindow& window) override;
     void update() override;

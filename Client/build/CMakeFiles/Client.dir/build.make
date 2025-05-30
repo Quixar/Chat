@@ -156,6 +156,48 @@ CMakeFiles/Client.dir/NetClient/NetClient.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Client.dir/NetClient/NetClient.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/quixar/Development/Chat/Client/NetClient/NetClient.cpp -o CMakeFiles/Client.dir/NetClient/NetClient.cpp.s
 
+CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.o: CMakeFiles/Client.dir/flags.make
+CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.o: /Users/quixar/Development/Chat/Client/StateMachine/RegistrationStateFactory.cpp
+CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.o: CMakeFiles/Client.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/quixar/Development/Chat/Client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.o -MF CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.o.d -o CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.o -c /Users/quixar/Development/Chat/Client/StateMachine/RegistrationStateFactory.cpp
+
+CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/quixar/Development/Chat/Client/StateMachine/RegistrationStateFactory.cpp > CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.i
+
+CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/quixar/Development/Chat/Client/StateMachine/RegistrationStateFactory.cpp -o CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.s
+
+CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.o: CMakeFiles/Client.dir/flags.make
+CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.o: /Users/quixar/Development/Chat/Client/StateMachine/LoginStateFactory.cpp
+CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.o: CMakeFiles/Client.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/quixar/Development/Chat/Client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.o -MF CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.o.d -o CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.o -c /Users/quixar/Development/Chat/Client/StateMachine/LoginStateFactory.cpp
+
+CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/quixar/Development/Chat/Client/StateMachine/LoginStateFactory.cpp > CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.i
+
+CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/quixar/Development/Chat/Client/StateMachine/LoginStateFactory.cpp -o CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.s
+
+CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.o: CMakeFiles/Client.dir/flags.make
+CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.o: /Users/quixar/Development/Chat/Client/StateMachine/ChatStateFactory.cpp
+CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.o: CMakeFiles/Client.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/quixar/Development/Chat/Client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.o -MF CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.o.d -o CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.o -c /Users/quixar/Development/Chat/Client/StateMachine/ChatStateFactory.cpp
+
+CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/quixar/Development/Chat/Client/StateMachine/ChatStateFactory.cpp > CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.i
+
+CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/quixar/Development/Chat/Client/StateMachine/ChatStateFactory.cpp -o CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.s
+
 # Object files for target Client
 Client_OBJECTS = \
 "CMakeFiles/Client.dir/main.cpp.o" \
@@ -163,7 +205,10 @@ Client_OBJECTS = \
 "CMakeFiles/Client.dir/StateMachine/LoginState.cpp.o" \
 "CMakeFiles/Client.dir/StateMachine/StateMachine.cpp.o" \
 "CMakeFiles/Client.dir/StateMachine/ChatState.cpp.o" \
-"CMakeFiles/Client.dir/NetClient/NetClient.cpp.o"
+"CMakeFiles/Client.dir/NetClient/NetClient.cpp.o" \
+"CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.o" \
+"CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.o" \
+"CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.o"
 
 # External object files for target Client
 Client_EXTERNAL_OBJECTS =
@@ -174,13 +219,16 @@ Client: CMakeFiles/Client.dir/StateMachine/LoginState.cpp.o
 Client: CMakeFiles/Client.dir/StateMachine/StateMachine.cpp.o
 Client: CMakeFiles/Client.dir/StateMachine/ChatState.cpp.o
 Client: CMakeFiles/Client.dir/NetClient/NetClient.cpp.o
+Client: CMakeFiles/Client.dir/StateMachine/RegistrationStateFactory.cpp.o
+Client: CMakeFiles/Client.dir/StateMachine/LoginStateFactory.cpp.o
+Client: CMakeFiles/Client.dir/StateMachine/ChatStateFactory.cpp.o
 Client: CMakeFiles/Client.dir/build.make
 Client: /opt/homebrew/lib/libsfml-graphics.3.0.0.dylib
 Client: /opt/homebrew/lib/libsfml-window.3.0.0.dylib
 Client: /opt/homebrew/lib/libsfml-network.3.0.0.dylib
 Client: /opt/homebrew/lib/libsfml-system.3.0.0.dylib
 Client: CMakeFiles/Client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/quixar/Development/Chat/Client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/quixar/Development/Chat/Client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
